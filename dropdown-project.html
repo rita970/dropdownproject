@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang=es>
+<head>
+<title>Interactive Dropdown UI Component | Frontend Developer Project</title>
+<meta name="description" content="Elegant and responsive dropdown UI with customizable design. Built for modern web interfaces using HTML, CSS, and vanilla JavaScript.">
+<meta name="keywords" content="HTML dropdown, UI component, custom dropdown, frontend UI design, JavaScript interaction, responsive UI element">
+<meta charset=utf-8>
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name=robots content="index,follow">
+<meta name=googlebot content="index,follow">
+<style>
+.dropdown {
+position: relative;
+display: inline-block;
+}
+.drop-new1 {
+border-radius: 0.5rem !important;
+}
+.dropdown-toggle {
+padding: 8px 16px;
+background-color: #ffffff;
+border: 1px solid #ccc;
+cursor: pointer;
+}
+.dropdown-menu {
+position: absolute;
+left: 0;
+top: 100%;
+width: 100%;
+border: 1px solid #ccc;
+background-color: #fff;
+display: none;
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+.dropdown-menu li {
+padding: 8px 16px;
+cursor: pointer;
+}
+.dropdown-menu li:hover,
+.dropdown-menu .selected {
+background-color: #f0f0f0;
+}
+.dropdown.open .dropdown-menu {
+display: block;
+}
+.dropdown-toggle::after {
+float: right;
+margin-top: 8px;
+}
+.dropdown-toggle::after {
+content: "";
+display: inline-block;
+margin-left: 0.5em;
+vertical-align: middle;
+border-top: 0.4em solid;
+border-right: 0.4em solid transparent;
+border-left: 0.4em solid transparent;
+}
+</style>
+</head>
+<body>
+<section class="container my-4">
+<h1>Custom Dropdown Component</h1>
+<p>This interactive dropdown is built with semantic HTML, modern CSS styling (including rounded edges and hover highlights), and lightweight JavaScript. It supports state changes, selected highlighting, and updates the label dynamically based on user interaction. Ideal for use in quote forms, filters, or form selectors.</p>
+</section>
+<section class="container my-4">
+<div class="row">
+<div class="col-12 px-0">
+<div class="dropdown">
+<button class="dropdown-toggle drop-new1">Select an Item</button>
+<ul class="dropdown-menu drop-new1">
+<li>First Item</li>
+<li>Second Item</li>
+<li>Third Item</li>
+<li>Fourth Item</li>
+<li>Fifth Item</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<script>
+let dropdown = document.querySelector('.dropdown');
+let toggle = dropdown.querySelector('.dropdown-toggle');
+let menu = dropdown.querySelector('.dropdown-menu');
+let items = dropdown.querySelectorAll('.dropdown-menu li');
+toggle.addEventListener('click', () => {
+dropdown.classList.toggle('open');
+});
+items.forEach(item => {
+item.addEventListener('click', () => {
+toggle.textContent = item.textContent;
+items.forEach(i => i.classList.remove('selected'));
+item.classList.add('selected');
+dropdown.classList.remove('open');
+});
+});
+</script>
+<!--G4 Analytics-->
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZL2C4KE124"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-ZL2C4KE124'); </script>
+<!--EOF G4 Analytics-->
+</body>
+</html>
